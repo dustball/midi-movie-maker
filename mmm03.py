@@ -13,7 +13,7 @@ import moviepy.editor as mpy
 
 # Configuration
 csv = open("/Users/brianklug/Desktop/datawow.csv",'r')
-output_file = "/Users/brianklug/Desktop/out06-04.mp4"
+output_file = "/Users/brianklug/Desktop/out06-05.mp4"
 o2 = "20.9"
 
 
@@ -38,7 +38,7 @@ def make_frame(tt):
     p.draw(surface)
     
 
-    txt = gizeh.text(o2+"% ►", "Arial",20,fill=(1,1,1), h_align="right",fontweight='bold',xy=(1808,1040-(height*29.4)))
+    txt = gizeh.text(o2+"% ►", "Arial",30,fill=(1,1,1), h_align="right",fontweight='bold',xy=(1808,1040-(height*29.4)))
     txt.draw(surface)
         
 
@@ -71,7 +71,7 @@ for line in csv:
     line = line.replace(","," ")
     line = line.replace("  "," ").replace("  "," ").replace("  "," ").replace("  "," ").replace("  "," ").replace("  "," ").replace("  "," ")
     
-    d = 2
+    d = 2*4.54
     
     if values[25] and int(values[25]) > 0:
         
@@ -85,14 +85,14 @@ for line in csv:
         o2 = values[17]
         
         print(text)
-        txt_clip = TextClip(text , font='Arial', color='white', align="SouthWest",fontsize=24,size=screensize, transparent=True).set_duration(d).subclip(0,d).set_fps(1)
+        txt_clip = TextClip(text , font='Arial', color='white', align="SouthWest",fontsize=32,size=screensize, transparent=True).set_duration(d).subclip(0,d).set_fps(1)
     else:
         
         
         text = "  " +values[3] + "\n  " + values[2] + "\n  " +  values[0] + " " + values[1] 
         
         print(text)
-        txt_clip = TextClip( text, font='Arial', color='white', align="SouthWest",fontsize=24,size=screensize, transparent=True).set_duration(d).subclip(0,d).set_fps(1)
+        txt_clip = TextClip( text, font='Arial', color='white', align="SouthWest",fontsize=32,size=screensize, transparent=True).set_duration(d).subclip(0,d).set_fps(1)
     
     
     #bclip = mpy.VideoClip(make_frame, duration=d).set_duration(d).subclip(0,d).set_fps(1)
